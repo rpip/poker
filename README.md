@@ -2,6 +2,13 @@
 
 A Poker deck library
 
+```shell
+iex> Poker.ranking(~w[2S 3S 4S 5S 6S])
+:straight_flush
+iex> Poker.rank(black: ~w(3H 3D 3S 9C KD), white: ~w(2C 3H 4S 8C AH))
+Black wins - three of a kind
+```
+
 ## How it works
 
 Watch this video on how to play Poker.
