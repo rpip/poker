@@ -1,12 +1,12 @@
 defmodule Poker.MixProject do
   use Mix.Project
-  @version "0.1.1"
+  @version "0.1.0"
 
   def project do
     [
       app: :poker,
       version: @version,
-      elixir: "~> 1.6",
+      elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env()),
       consolidate_protocols: not (Mix.env() in [:dev, :test]),
