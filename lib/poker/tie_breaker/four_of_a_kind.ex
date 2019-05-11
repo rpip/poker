@@ -1,11 +1,11 @@
-defmodule Poker.TieBraker.FourOfAKindResolver do
+defmodule Poker.TieBreaker.FourOfAKindResolver do
   @moduledoc """
   Hands which both contain four of a kind are ranked by
   the value of the 4 cards.
   """
-  @behaviour Poker.TieBraker.Resolver
+  @behaviour Poker.TieBreaker.Resolver
 
-  use Poker.Hand.TieBraker
+  use Poker.TieBreaker
 
   def resolve(black, white) do
     black_total = Enum.sum(pairs(black, 4))

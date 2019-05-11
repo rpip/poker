@@ -1,13 +1,13 @@
-defmodule Poker.TieBraker.TwoPairsResolver do
+defmodule Poker.TieBreaker.TwoPairsResolver do
   @moduledoc """
   Hands which both contain 2 pairs are ranked by the value
   of their highest pair. Hands with the same highest pair are
   ranked by the value of their other pair. If these values are
   the same the hands are ranked by the value of the remaining card.
   """
-  @behaviour Poker.TieBraker.Resolver
+  @behaviour Poker.TieBreaker.Resolver
 
-  use Poker.Hand.TieBraker
+  use Poker.TieBreaker
 
   def resolve(black, white) do
     with black_pairs <- pairs(black, 2),

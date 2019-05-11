@@ -1,11 +1,11 @@
-defmodule Poker.TieBraker.ThreeOfAKindResolver do
+defmodule Poker.TieBreaker.ThreeOfAKindResolver do
   @moduledoc """
   Hands which both contain three of a kind are ranked by
   the value of the 3 cards.
   """
-  @behaviour Poker.TieBraker.Resolver
+  @behaviour Poker.TieBreaker.Resolver
 
-  use Poker.Hand.TieBraker
+  use Poker.TieBreaker
 
   def resolve(black, white) do
     black_total = Enum.sum(pairs(black, 3))

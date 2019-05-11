@@ -1,10 +1,10 @@
-defmodule Poker.TieBraker.StraightResolver do
+defmodule Poker.TieBreaker.StraightFlushResolver do
   @moduledoc """
-  Hands which both contain a straight are ranked by their highest card.
+  Ranked by the highest card in the hand.
   """
-  @behaviour Poker.TieBraker.Resolver
+  @behaviour Poker.TieBreaker.Resolver
 
-  use Poker.Hand.TieBraker
+  use Poker.TieBreaker
 
   def resolve(black, white) do
     black_max = Enum.max(ranks(black))

@@ -2,7 +2,22 @@ defmodule Poker.Hand do
   @moduledoc """
   An ordered collection of cards.
   """
-  alias Poker.Hand.TieBraker
+  alias Poker.TieBreaker
+
+  @type player :: :black | :white
+
+  @type tie_break_value :: term()
+
+  @type ranking ::
+          :high_card
+          | :pair
+          | :two_pairs
+          | :three_of_a_kind
+          | :straight
+          | :flush
+          | :full_house
+          | :four_of_a_kind
+          | :straight_flush
 
   # Hand ranks
   @rankings %{
@@ -17,6 +32,10 @@ defmodule Poker.Hand do
     :straight_flush => 9
   }
 
+  @doc """
+  Evaluates the cards and assigns a rank based on the Poker rules.
+  """
+  @spec evaluate([Card.t()]) :: ranking
   def evaluate(cards) do
     cond do
       straight_flush?(cards) ->
@@ -49,6 +68,11 @@ defmodule Poker.Hand do
     end
   end
 
+  @doc """
+  Compares the cards and resolves tie breakes, indicating if any, the tie breaker.
+  """
+  @spec compare(Card.t(), Card.t()) ::
+          {player, ranking} | {player, ranking, tie_break_value} | :tie
   def compare(black, white) do
     black_ranking = evaluate(black)
     white_ranking = evaluate(white)
@@ -61,7 +85,7 @@ defmodule Poker.Hand do
         {:white, white_ranking}
 
       true ->
-        case TieBraker.resolve(black_ranking, black, white) do
+        case TieBreaker.resolve(black_ranking, black, white) do
           {player, tie_break_value} ->
             {player, black_ranking, tie_break_value}
 

@@ -1,13 +1,13 @@
-defmodule Poker.TieBraker.HighCardResolver do
+defmodule Poker.TieBreaker.HighCardResolver do
   @moduledoc """
   Hands which do not fit any higher category are ranked
   by the value of their highest card. If the highest
   cards have the same value, the hands are ranked by the
   next highest, and so on.
   """
-  @behaviour Poker.TieBraker.Resolver
+  @behaviour Poker.TieBreaker.Resolver
 
-  use Poker.Hand.TieBraker
+  use Poker.TieBreaker
 
   def resolve(black, white) do
     with black_ranks <- ranks(black) |> Enum.reverse(),

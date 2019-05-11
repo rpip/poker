@@ -3,11 +3,38 @@ defmodule Poker.Hand.TieBrakerTest do
 
   def test "high cards ties" do
     hands = [
-      black: ~w[2C 3H 4S 8C AH],
-      white: ~w[2H 3D 5S 9C KD]
+      black: ~w[2H 3D 5S 9C KD],
+      white: ~w[2C 3H 4S 8C AH]
     ]
 
     assert Poker.rank(hands) == "Black wins - high card: Ace"
+  end
+
+  test "white wins flush" do
+    hands = [
+      black: ~w(2H 4S 4C 3D 4H),
+      white: ~w(2S 8S AS QS 3S)
+    ]
+
+    assert Poker.rank(hands) == "White wins - flush"
+  end
+
+  test "Black wins - high card: 9" do
+    hands = [
+      black: ~w(2H 3D 5S 9C KD),
+      white: ~w(2C 3H 4S 8C KH)
+    ]
+
+    assert Poker.rank(hands) == "Black wins - high card: 9"
+  end
+
+  test "tie stalemate" do
+    hands = [
+      black: ~w(2H 3D 5S 9C KD),
+      white: ~w(2D 3H 5C 9S KH)
+    ]
+
+    assert Poker.rank(hands) == "Tie"
   end
 
   test "two pairs tie" do
@@ -28,7 +55,7 @@ defmodule Poker.Hand.TieBrakerTest do
     assert Poker.rank(hands) == "White wins - three of a kind: Queen"
   end
 
-  test "flush tie" do
+  test "black wins flush tie" do
     hands = [
       black: ~w[2S 8S AS QS 3S],
       white: ~w[5H 5H 7H 2H 2H]

@@ -2,11 +2,8 @@ defmodule PokerTest do
   use ExUnit.Case
   doctest Poker
 
-  @three_of_a_kind ~w(3H 3D 3S 9C KD)
-  @high_card ~w(2C 3H 4S 8C AH)
-
   test "parse string of cards" do
-    assert Poker.parse_hand!(@three_of_a_kind) ==
+    assert Poker.parse_hand!(~w(3H 3D 3S 9C KD)) ==
              {:ok,
               [
                 %Poker.Card{rank: 3, suit: "H"},
@@ -18,9 +15,12 @@ defmodule PokerTest do
   end
 
   test "ranks the two hands" do
+    three_of_a_kind = ~w(3H 3D 3S 9C KD)
+    high_card = ~w(2C 3H 4S 8C AH)
+
     hands = [
-      black: @three_of_a_kind,
-      white: @high_card
+      black: three_of_a_kind,
+      white: high_card
     ]
 
     assert Poker.rank(hands) == "Black wins - three of a kind"

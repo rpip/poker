@@ -1,13 +1,13 @@
-defmodule Poker.TieBraker.PairResolver do
+defmodule Poker.TieBreaker.PairResolver do
   @moduledoc """
   Hands which both contain a pair are ranked by the value
   of the cards forming the pair. If these values are the same,
   the hands are ranked by the values of the cards not forming
   the pair, in decreasing order.
   """
-  @behaviour Poker.TieBraker.Resolver
+  @behaviour Poker.TieBreaker.Resolver
 
-  use Poker.Hand.TieBraker
+  use Poker.TieBreaker
 
   def resolve(black, white) do
     black_total = Enum.sum(pairs(black, 2))

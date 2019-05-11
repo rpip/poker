@@ -1,4 +1,4 @@
-defmodule Poker.Hand.TieBraker do
+defmodule Poker.TieBreaker do
   @moduledoc """
   Implements strategies for breaking ties
   """
@@ -9,45 +9,45 @@ defmodule Poker.Hand.TieBraker do
   end
 
   def resolve(:high_card, black, white) do
-    Poker.TieBraker.HighCardResolver.resolve(black, white)
+    Poker.TieBreaker.HighCardResolver.resolve(black, white)
   end
 
   def resolve(:pair, black, white) do
-    Poker.TieBraker.HighCardResolver.resolve(black, white)
+    Poker.TieBreaker.HighCardResolver.resolve(black, white)
   end
 
   def resolve(:two_pairs, black, white) do
-    Poker.TieBraker.TwoPairsResolver.resolve(black, white)
+    Poker.TieBreaker.TwoPairsResolver.resolve(black, white)
   end
 
   def resolve(:three_of_a_kind, black, white) do
-    Poker.TieBraker.ThreeOfAKindResolver.resolve(black, white)
+    Poker.TieBreaker.ThreeOfAKindResolver.resolve(black, white)
   end
 
   def resolve(:straight, black, white) do
-    Poker.TieBraker.StraightResolver.resolve(black, white)
+    Poker.TieBreaker.StraightResolver.resolve(black, white)
   end
 
   # Hands which are both flushes are ranked using the rules for High Card.
   def resolve(:flush, black, white) do
-    Poker.TieBraker.HighCardResolver.resolve(black, white)
+    Poker.TieBreaker.HighCardResolver.resolve(black, white)
   end
 
   def resolve(:full_house, black, white) do
-    Poker.TieBraker.ThreeOfAKindResolver.resolve(black, white)
+    Poker.TieBreaker.ThreeOfAKindResolver.resolve(black, white)
   end
 
   # also ranked by the value of the 3 pair cards
   def resolve(:four_of_a_kind, black, white) do
-    Poker.TieBraker.FourOfAKindResolver.resolve(black, white)
+    Poker.TieBreaker.FourOfAKindResolver.resolve(black, white)
   end
 
   def resolve(:straight_flush, black, white) do
-    Poker.TieBraker.StraightFlushResolver.resolve(black, white)
+    Poker.TieBreaker.StraightFlushResolver.resolve(black, white)
   end
 end
 
-defmodule Poker.TieBraker.Resolver do
+defmodule Poker.TieBreaker.Resolver do
   @moduledoc """
   Behaviour for implementing tie breaking strategies for poker cards
   """
