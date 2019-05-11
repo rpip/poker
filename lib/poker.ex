@@ -51,11 +51,10 @@ defmodule Poker do
          {:ok, white_hand} <- parse_hand!(white) do
       case Hand.compare(black_hand, white_hand) do
         {player, ranking} ->
-          "#{String.capitalize(to_string(player))} wins - #{unslugify(ranking)}"
+          print_result(player, ranking)
 
         {player, ranking, tie_breaker} ->
-          # TODO: unslugify ranking, e.g: high_card -> high_card
-          "#{String.capitalize(to_string(player))} wins - #{unslugify(ranking)}: #{tie_breaker}"
+          print_result(player, ranking, tie_breaker)
 
         :tie ->
           "Tie"
@@ -103,6 +102,17 @@ defmodule Poker do
       end
 
     {:ok, cards}
+  end
+
+  ## private
+  defp print_result(player, ranking) do
+    fmt_player = String.capitalize(to_string(player))
+    "#{fmt_player} wins - #{unslugify(ranking)}"
+  end
+
+  defp print_result(player, ranking, tie_breaker) do
+    fmt_player = String.capitalize(to_string(player))
+    "#{fmt_player} wins - #{unslugify(ranking)}: #{tie_breaker}"
   end
 
   defp rank_to_int("T"), do: 10
