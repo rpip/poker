@@ -21,10 +21,10 @@ Watch this video on how to play Poker.
 * four of a kind - four cards of the same rank, such as four kings. Also called quads
 * full house - three cards of one rank plus two cards of another rank. Called Jacks Full of Nines
 * flush - five cards of the same suit (but not a straight flush)
-* straight - five cards in order - just like the straight flush, but mixed suits
-* three of a kind - three cards of one rank and two other cards
-* two pairs - two cards of one rank, two cards of another rank, and one more card
-* pair - two cards of the same rank
+* straight - any five numbered cards in sequence, that are not of the same suit.
+* three of a kind - 3 cards of the same number, and the other two don’t match each other. Also called trip
+* two pairs - Out of five cards, you have two pairs
+* pair - out of five cards you have 1 pair
 * high card - none of the above
 
 Each algorithm has an associated tie breaker implemented in Elixir for breaking ties.
