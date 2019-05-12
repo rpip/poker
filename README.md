@@ -17,7 +17,7 @@ Watch this video on how to play Poker.
 
 ## Ranking algorithms
 
-* straight flush - - Straight flush: any five cards in sequence of the same suit. e.g: 6S, 7S, 8S, 9S, 10S. TIE: In this case, the player with the highest card wins
+* straight flush - any five cards in sequence of the same suit. e.g: 6S, 7S, 8S, 9S, 10S. TIE: In this case, the player with the highest card wins
 * four of a kind - four cards of the same rank, such as four kings. Also called quads
 * full house - three cards of one rank plus two cards of another rank. Called Jacks Full of Nines
 * flush - five cards of the same suit (but not a straight flush)
