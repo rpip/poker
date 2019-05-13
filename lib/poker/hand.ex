@@ -169,7 +169,7 @@ defmodule Poker.Hand do
   def ranks(cards), do: Enum.map(cards, & &1.rank)
 
   def pprint_rank(10), do: "T"
-  def pprint_rank(11), do: "Jacl"
+  def pprint_rank(11), do: "Jack"
   def pprint_rank(12), do: "Queen"
   def pprint_rank(13), do: "King"
   def pprint_rank(14), do: "Ace"
