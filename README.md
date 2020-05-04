@@ -1,4 +1,6 @@
 # Poker
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frpip%2Fpoker.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Frpip%2Fpoker?ref=badge_shield)
+
 
 A Poker deck library
 
@@ -47,3 +49,7 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/poker](https://hexdocs.pm/poker).
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frpip%2Fpoker.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frpip%2Fpoker?ref=badge_large)
